@@ -1,46 +1,44 @@
-{
-    "services": [
-        {
-            "id": 1,
-            "name": "Premium Conference Planning",
-            "image": "Image Link 1",
-            "price": "$10,000",
-            "description": "Our comprehensive conference planning service includes venue selection, agenda development, guest registration, and audio-visual support. Leave the details to us and host a flawless corporate event."
-        },
-        {
-            "id": 2,
-            "name": "Gala Dinner & Awards Ceremony",
-            "image": "Image Link 2",
-            "price": "$8,500",
-            "description": "Make your corporate celebration unforgettable with our gala dinner and awards ceremony package. We handle everything from elegant decor to award presentations, ensuring a memorable night for all attendees."
-        },
-        {
-            "id": 3,
-            "name": "Team Building Adventure Day",
-            "image": "Image Link 3",
-            "price": "$5,000",
-            "description": "Strengthen your team's bonds and boost morale with our adventure-packed team-building day. Activities include obstacle courses, team challenges, and a catered picnic lunch."
-        },
-        {
-            "id": 4,
-            "name": "Tech Expo and Product Launch",
-            "image": "Image Link 4",
-            "price": "$12,000",
-            "description": "Launch your latest tech innovations with our expo service. We provide booth setups, promotional materials, and event coordination, ensuring your product gets the spotlight it deserves."
-        },
-        {
-            "id": 5,
-            "name": "VIP Executive Retreat",
-            "image": "Image Link 5",
-            "price": "$15,000",
-            "description": "Treat your executives to a luxurious retreat designed to foster strategic thinking and relaxation. This all-inclusive package features exclusive accommodations, spa treatments, and executive workshops."
-        },
-        {
-            "id": 6,
-            "name": "Sustainable Corporate Events",
-            "image": "Image Link 6",
-            "price": "Custom Quote",
-            "description": "Showcase your company's commitment to sustainability with our eco-friendly event service. We offer eco-conscious venue options, zero-waste catering, and carbon offset initiatives tailored to your needs."
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "name": "Premium Conference Planning",
+        "image": "https://images.unsplash.com/photo-1503428593586-e225b39bddfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        "price": "$10,000",
+        "description": "Our comprehensive conference planning service includes venue selection, agenda development, guest registration, and audio-visual support. Leave the details to us and host a flawless corporate event."
+    },
+    {
+        "id": 2,
+        "name": "Gala Dinner & Awards Ceremony",
+        "image": "https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+        "price": "$8,500",
+        "description": "Make your corporate celebration unforgettable with our gala dinner and awards ceremony package. We handle everything from elegant decor to award presentations, ensuring a memorable night for all attendees."
+    },
+    {
+        "id": 3,
+        "name": "Team Building Adventure Day",
+        "image": "https://plus.unsplash.com/premium_photo-1661277666101-01fb123f2a4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        "price": "$5,000",
+        "description": "Strengthen your team's bonds and boost morale with our adventure-packed team-building day. Activities include obstacle courses, team challenges, and a catered picnic lunch."
+    },
+    {
+        "id": 4,
+        "name": "Tech Expo and Product Launch",
+        "image": "https://images.unsplash.com/photo-1508997449629-303059a039c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        "price": "$12,000",
+        "description": "Launch your latest tech innovations with our expo service. We provide booth setups, promotional materials, and event coordination, ensuring your product gets the spotlight it deserves."
+    },
+    {
+        "id": 5,
+        "name": "VIP Executive Retreat",
+        "image": "https://images.unsplash.com/photo-1484156818044-c040038b0719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        "price": "$15,000",
+        "description": "Treat your executives to a luxurious retreat designed to foster strategic thinking and relaxation. This all-inclusive package features exclusive accommodations, spa treatments, and executive workshops."
+    },
+    {
+        "id": 6,
+        "name": "Sustainable Corporate Events",
+        "image": "https://images.unsplash.com/photo-1558008258-3256797b43f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80",
+        "price": "Custom Quote",
+        "description": "Showcase your company's commitment to sustainability with our eco-friendly event service. We offer eco-conscious venue options, zero-waste catering, and carbon offset initiatives tailored to your needs."
+    }
+]

@@ -2,12 +2,12 @@
 
 export default function Banner() {
     return (
-        <div className="relative py-4">
+        <div className="relative py-4" data-aos="fade-up">
 
             <div>
                 <img className="object-cover h-96 w-full opacity-90" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" />
                 <h1 className="absolute font-black text-white text-7xl top-24 left-6">WE Manage Event <br /> For You</h1>
-                <button className="btn btn-warning absolute right-4 bottom-4 ">Join Now</button>
+                <button className="btn btn-warning text-black font-bold absolute right-4 bottom-8">Join Now</button>
             </div>
 
             {/* <div className="carousel w-full">
