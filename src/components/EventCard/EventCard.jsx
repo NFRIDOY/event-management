@@ -12,7 +12,7 @@ export default function EventCard({event}) {
                         {description}
                     </p>
                     <div className="card-actions justify-end ">
-                        <button className="btn btn-accent">Buy Now {price}</button>
+                        <button className="btn btn-neutral text-white">Buy Now {price}</button>
                     </div>
                 </div>
             </div>

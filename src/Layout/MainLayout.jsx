@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import Header from '../components/Header/Header'
 import { createContext, useState } from 'react';
+import Footer from '../Footer/Footer';
 
 export const DonationContext = createContext([]);
 
@@ -20,6 +21,7 @@ export default function MainLayout() {
       <DonationContext.Provider value={[allDonations, setAllDonations]}>
         <Outlet></Outlet>
       </DonationContext.Provider>
+      <Footer></Footer>
     </div>
   )
 }
