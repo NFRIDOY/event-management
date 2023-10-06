@@ -33,8 +33,8 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path: "/donationDetails/:id",
-                loader: () => fetch("/donation.json"),
+                path: "/events/:id",
+                loader: () => fetch("/public/eventData.json"),
                 element: <div>4</div>,
             },
 

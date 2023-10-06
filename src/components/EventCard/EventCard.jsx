@@ -7,12 +7,12 @@ export default function EventCard({event}) {
             <div className="card card-compact w-96 h-[400px] bg-base-100 shadow-xl text-black">
                 <figure><img src={image} alt={name} /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">{name}</h2>
-                    <p>
+                    <h2 className="card-title font-bold">{name}</h2>
+                    <p className="text-slate-600 italic">
                         {description}
                     </p>
                     <div className="card-actions justify-end ">
-                        <button className="btn btn-neutral text-white">Buy Now {price}</button>
+                        <button className="btn btn-neutral text-white hover:bg-white hover:text-black">Buy Now {price}</button>
                     </div>
                 </div>
             </div>

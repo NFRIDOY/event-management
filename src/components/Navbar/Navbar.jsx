@@ -19,7 +19,7 @@ export default function Navbar() {
                                     }
                                 >
                                     Home
-                                </NavLink>;
+                                </NavLink>
                             </li>
                             <li>
                                 <NavLink
@@ -29,7 +29,7 @@ export default function Navbar() {
                                     }
                                 >
                                     Events
-                                </NavLink>;
+                                </NavLink>
                             </li>
                         
                             <li>
@@ -40,7 +40,7 @@ export default function Navbar() {
                                     }
                                 >
                                     Registration
-                                </NavLink>;
+                                </NavLink>
                             </li>
                             <li>
                                 <NavLink
@@ -50,11 +50,11 @@ export default function Navbar() {
                                     }
                                 >
                                     Login
-                                </NavLink>;
+                                </NavLink>
                             </li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">EVENT MANAGMENT BD</a>
+                    <a className=" normal-case text-2xl font-black">EVENT MANAGMENT BD</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
