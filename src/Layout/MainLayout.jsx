@@ -9,7 +9,8 @@ export default function MainLayout() {
   const [allDonations, setAllDonations] = useState([]);
 
   return (
-    <div className='max-w-7xl mx-auto py-9'>
+    // <div className='max-w-7xl mx-auto py-9'>
+    <div className='mx-auto'>
       {/* {allDonations} */}
       {
         // allDonations.map((donate)=> donate)

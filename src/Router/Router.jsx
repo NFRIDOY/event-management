@@ -4,6 +4,9 @@ import {
 import MainLayout from "../Layout/MainLayout";
 import Home from '../pages/home/Home'
 import Error from '../pages/Error/Error'
+import Login from "../components/Login/Login";
+import Registration from "../components/Registration/Registration";
+import Events from "../components/Events/Events";
 
 const router = createBrowserRouter([
     {
@@ -17,13 +20,17 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: "/donation",
-                element: <div>2</div>,
+                path: "/events",
+                element: <Events></Events>,
                 // errorElement: <DonationError></DonationError>,
             },
             {
-                path: "/statistics",
-                element: <div>3</div>
+                path: "/registration",
+                element: <Registration></Registration>
+            },
+            {
+                path: "/login",
+                element: <Login></Login>
             },
             {
                 path: "/donationDetails/:id",
