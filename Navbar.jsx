@@ -1,6 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "./src/Providers/AuthProvider";
+
 
 export default function Navbar() {
+
+    const {handleSignOut, user } = useContext(AuthContext)
     return (
         <div>
 
@@ -31,7 +36,7 @@ export default function Navbar() {
                                     Events
                                 </NavLink>
                             </li>
-                        
+
                             <li>
                                 <NavLink
                                     to="/registration"
@@ -54,7 +59,7 @@ export default function Navbar() {
                             </li>
                         </ul>
                     </div>
-                    <a className=" normal-case text-2xl font-black">NF EVENT MANAGMENT</a>
+                    <Link to={"/"} className=" normal-case text-2xl font-black">NF EVENT MANAGMENT</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -111,7 +116,12 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn btn-ghost">Log Out</a>
+                    <div className="btn btn-ghost" >
+                        {/* Log Out */}
+                        {
+                            user ? <span onClick={handleSignOut}>Log Out </span> : <Link to={'/login'} >Log In</Link> 
+                        }
+                    </div>
                 </div>
             </div>
 

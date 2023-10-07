@@ -14,16 +14,16 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
-        errorElement: <Error></Error>,
+        // errorElement: <Error></Error>,
         children: [
             {
                 path: "/",
-                loader: () => fetch('/public/eventData.json'),
+                loader: () => fetch('eventData.json'),
                 element: <Home></Home>
             },
             {
                 path: "/events",
-                loader: () => fetch('/public/eventData.json'),
+                loader: () => fetch('eventData.json'),
                 element: <Events></Events>,
                 // errorElement: <DonationError></DonationError>,
             },
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/events/:id",
-                loader: () => fetch("/public/eventData.json"),
+                loader: () => fetch("eventData.json"),
                 element: <div>4</div>,
             },
 
