@@ -54,7 +54,7 @@ export default function Navbar() {
                             </li>
                         </ul>
                     </div>
-                    <a className=" normal-case text-2xl font-black">EVENT MANAGMENT BD</a>
+                    <a className=" normal-case text-2xl font-black">NF EVENT MANAGMENT</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
