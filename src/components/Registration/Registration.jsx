@@ -9,10 +9,10 @@ import { Link } from "react-router-dom";
 export default function Registration() {
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-100">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Registration Now!</h1>
+                        <h1 className="text-5xl font-bold">Registration <span className="text-success">Now!</span></h1>
                         <p className="py-6">
                             Our dedicated support team is available to assist you 24/7.
                         </p>
