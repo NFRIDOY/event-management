@@ -1,5 +1,5 @@
 import Banner from "../Banner/Banner";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../../Navbar";
 // import TopNavbar from "../TopNavbar/TopNavbar";
 
 export default function Header() {

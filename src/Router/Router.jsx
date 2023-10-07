@@ -7,6 +7,8 @@ import Error from '../pages/Error/Error'
 import Login from "../components/Login/Login";
 import Registration from "../components/Registration/Registration";
 import Events from "../components/Events/Events";
+import Orders from "../components/Orders/Orders";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/orders",
+                element: <PrivateRoutes><Orders></Orders></PrivateRoutes>
             },
             {
                 path: "/events/:id",
