@@ -7,7 +7,6 @@ export default function Header() {
         <>
             {/* <TopNavbar></TopNavbar> */}
             <Navbar></Navbar>
-            <Banner></Banner>
         </>
     )
 }

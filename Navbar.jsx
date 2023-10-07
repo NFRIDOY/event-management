@@ -80,6 +80,16 @@ export default function Navbar() {
                         </li>
                         <li>
                             <NavLink
+                                to="/orders"
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "active" : ""
+                                }
+                            >
+                                Orders
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
                                 to="/registration"
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "active" : ""

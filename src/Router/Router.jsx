@@ -23,6 +23,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/events",
+                loader: () => fetch('/public/eventData.json'),
                 element: <Events></Events>,
                 // errorElement: <DonationError></DonationError>,
             },
