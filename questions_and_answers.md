@@ -20,7 +20,7 @@ console.log(greetign);
 
 #### Answer: 
 <p>
-Here greeting is defined but greetign is not defined. So theire will be an ReferenceError. Which is "greetign" is not defined
+Here greeting is defined but greetign is not defined. So their will be an ReferenceError. Which is "greetign" is not defined
 </p>
 
 <i>Write your explanation here</i>
@@ -45,7 +45,7 @@ sum(1, "2");
 
 <details><summary><b>Answer C: "12"</b></summary>
 <p>
-
+"+" it oparates like add two numbers or concatinate as string. Here one number and one string are concatinating. When their is at least one string with multiple numbers it always concatinates not adding. 
 </p>
 
 #### Answer: 
