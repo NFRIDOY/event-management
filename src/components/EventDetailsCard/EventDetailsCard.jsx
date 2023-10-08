@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 export default function EventDetailsCard() {
     
@@ -25,6 +27,15 @@ export default function EventDetailsCard() {
 
     },[eventsData])
 
+    const {wishlist, setWishlist, order, setOrder} = useContext(AuthContext)
+
+    const handleSetWishlist = () => {
+        setWishlist([...wishlist, event.id])
+    }
+    const handleSetOrder = () => {
+        setOrder([...order, event.id])
+    }
+
     
     return (
         <div>
@@ -35,8 +46,8 @@ export default function EventDetailsCard() {
                     <h2 className="card-title">{event?.name}</h2>
                     <p>{event?.description}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-info text-white">Add To Wishlist</button>
-                        <button className="btn btn-primary text-white">Book Now {event?.price}</button>
+                        <button className="btn btn-info text-white" onClick={handleSetWishlist}>Add To Wishlist</button>
+                        <button className="btn btn-primary text-white" onClick={handleSetOrder}>Book Now {event?.price}</button>
                     </div>
                 </div>
             </div>

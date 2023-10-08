@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 
 
 const Error = () => {
     return (
         <>
-            <section className="relative z-10 bg-primary py-[120px] h-screen">
+            <section className="relative z-10 bg-neutral py-[120px] h-screen">
                 <div className="container">
                     <div className="flex -mx-4">
                         <div className="w-full px-4">
@@ -12,17 +13,17 @@ const Error = () => {
                                     404
                                 </h2>
                                 <h4 className="mb-3 text-[22px] font-semibold leading-tight text-white">
-                                    Oops! That page can't be found
+                                    Oops! That page can not be found
                                 </h4>
                                 <p className="mb-8 text-lg text-white">
                                     The page you are looking for it maybe deleted
                                 </p>
-                                <a
+                                <Link
                                     href="/#"
-                                    className="inline-block px-8 py-3 text-base font-semibold text-center text-white transition border border-white rounded-lg hover:bg-white hover:text-primary"
+                                    className="inline-block px-8 py-3 text-base font-semibold text-center text-white transition border border-white rounded-lg hover:bg-white hover:text-neutral"
                                 >
                                     Go to Home
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

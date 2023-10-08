@@ -1,8 +1,16 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 export default function EventCard({ event }) {
     const { id, name, image, price, description } = event;
+    const {wishlist, setWishlist, order, setOrder} = useContext(AuthContext)
+
+    const handleSetOrder = () => {
+        setOrder([...order, id])
+    }
+    
     return (
         <div>
 
@@ -19,7 +27,7 @@ export default function EventCard({ event }) {
                                 View Details
                             </Link>
                         </button>
-                        <button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black">
+                        <button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black" onClick={handleSetOrder}>
                             Book Now {price}
                         </button>
                     </div>

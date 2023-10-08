@@ -5,7 +5,11 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 export default function Navbar() {
 
+
     const { handleSignOut, user } = useContext(AuthContext)
+
+    const {wishlist, setWishlist, order, setOrder} = useContext(AuthContext)
+
     return (
         <div>
 
@@ -177,6 +181,12 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end flex flex-col lg:flex-row">
+                    <p>
+                    orders: {order} 
+                    </p>
+                    <p>
+                        wishlist: {wishlist}
+                    </p>
                     {
                         // user && <span className="hidden md:block">Welcome &nbsp;</span>
                     }
