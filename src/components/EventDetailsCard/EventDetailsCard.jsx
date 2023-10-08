@@ -24,8 +24,8 @@ export default function EventDetailsCard() {
     return (
         <div>
 
-            <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure><img className='w-[50vh]' src={event?.image} alt="Album" /></figure>
+            <div className="card  bg-base-100 shadow-xl">
+                <figure><img className='h-screen' src={event?.image} alt="Album" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{event?.name}</h2>
                     <p>{event?.description}</p>
