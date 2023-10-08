@@ -29,8 +29,26 @@ export default function EventDetailsCard() {
 
     const { wishlist, setWishlist, order, setOrder } = useContext(AuthContext)
 
+    const isExist = (array) => {
+        const aaff = array.find(evn => evn.id === id)
+        console.log(aaff);
+        if (aaff) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
     const handleSetWishlist = () => {
-        setWishlist([...wishlist, event.id])
+        // if (wishlist.find(evn => evn.id === id)) {
+        if (isExist(wishlist)) {
+            alert("duplicate wishlist")
+        }
+        else {
+            setWishlist([...wishlist, event.id])
+        }
     }
     const handleSetOrder = () => {
         setOrder([...order, event.id])
@@ -40,11 +58,12 @@ export default function EventDetailsCard() {
     return (
         <div>
 
-            <div className="card  bg-base-100 shadow-xl ">
+            {/* PC Device */}
+            <div className="card  bg-base-100 shadow-xl hidden lg:block">
                 <figure><img className='object-cover h-[450px] w-11/12 rounded-3xl' src={event?.image} alt="Album" /></figure>
                 <div className="card-body mx-10 ">
-                    <div className='flex justify-between items-baseline'>
-                        <h2 className="card-title text-6xl font-black">{event?.name}</h2>
+                    <div className='flex flex-row justify-between items-baseline'>
+                        <h2 className="card-title lg:text-6xl font-black">{event?.name}</h2>
                         <div className="card-actions justify-end">
                             <button className="btn btn-info text-white" onClick={handleSetWishlist}>Add To Wishlist</button>
                             <button className="btn btn-primary text-white" onClick={handleSetOrder}>Book Now {event?.price}</button>
@@ -54,6 +73,19 @@ export default function EventDetailsCard() {
                 </div>
             </div>
 
+            {/* Mobile Device */}
+            <div className="card  bg-base-100 shadow-xl block lg:hidden">
+                <figure><img className='object-cover h-[450px] w-11/12 rounded-3xl' src={event?.image} alt="Album" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title text-2xl font-bold">{event?.name}</h2>
+                    <p>{event?.description}</p>
+                    <div className=" flex flex-row justify-between gap-4" >
+                        <button className="btn btn-info text-white" onClick={handleSetWishlist}>Add To Wishlist</button>
+                        <button className="btn btn-primary text-white" onClick={handleSetOrder}>Book Now {event?.price}</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     )
 }
