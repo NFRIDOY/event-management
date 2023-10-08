@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import toast from 'react-hot-toast';
 
 export default function EventDetailsCard() {
 
@@ -29,29 +30,48 @@ export default function EventDetailsCard() {
 
     const { wishlist, setWishlist, order, setOrder } = useContext(AuthContext)
 
-    const isExist = (array) => {
-        const aaff = array.find(evn => evn.id === id)
-        console.log(aaff);
-        if (aaff) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    // const isExist = (array) => {
+    //     const aaff = array.find(evn => evn.id === id)
+    //     console.log(aaff);
+    //     if (aaff) {
+    //         alert("Found")
+    //         return true;
+    //     }
+    //     else {
+    //         alert("Not Found")
+    //         return false;
+    //     }
 
-    }
+    // }
 
     const handleSetWishlist = () => {
+        // alert("wishlist", wishlist)
+        const isFound = wishlist.find(evnId => evnId.id == id)
         // if (wishlist.find(evn => evn.id === id)) {
-        if (isExist(wishlist)) {
-            alert("duplicate wishlist")
+        // alert(id, isFound)
+        if (!isFound) {
+            setWishlist([...wishlist, event])
+            toast.success("Wish List")
         }
         else {
-            setWishlist([...wishlist, event.id])
+            // alert("duplicate wishlist")
+            toast.error("Duplicate")
+            return;
         }
     }
     const handleSetOrder = () => {
-        setOrder([...order, event.id])
+        const isFound = order.find(evnId => evnId.id == id)
+        // if (wishlist.find(evn => evn.id === id)) {
+        // alert(id, isFound)
+        if (!isFound) {
+            setOrder([...order, event])
+            toast.success("Booked")
+        }
+        else {
+            // alert("duplicate wishlist")
+            toast.error("Duplicate")
+            return;
+        }
     }
 
 

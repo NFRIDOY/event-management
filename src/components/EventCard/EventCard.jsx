@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import toast from "react-hot-toast";
 
 
 export default function EventCard({ event }) {
@@ -8,7 +9,18 @@ export default function EventCard({ event }) {
     const {wishlist, setWishlist, order, setOrder} = useContext(AuthContext)
 
     const handleSetOrder = () => {
-        setOrder([...order, id])
+        const isFound = order.find(evnId => evnId == id)
+        // if (wishlist.find(evn => evn.id === id)) {
+        // alert(id, isFound)
+        if (!isFound) {
+            setOrder([...order, event.id])
+            toast.success("Booked")
+        }
+        else {
+            // alert("duplicate wishlist")
+            toast.error("Duplicate")
+            return;
+        }
     }
     
     return (

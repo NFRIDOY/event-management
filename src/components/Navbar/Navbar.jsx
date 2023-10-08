@@ -8,8 +8,15 @@ export default function Navbar() {
 
     const { handleSignOut, user } = useContext(AuthContext)
 
-    const {wishlist, setWishlist, order, setOrder} = useContext(AuthContext)
+    const { wishlist, setWishlist, order, setOrder } = useContext(AuthContext)
 
+    console.log(wishlist);
+    console.log(order);
+
+    const isEmpty = (list) => {
+        if (list.length == 0) return true;
+        else return false;
+    }
     return (
         <div>
 
@@ -123,7 +130,10 @@ export default function Navbar() {
                             </NavLink>
                         </li>
                         {
-                            user && <li>
+                            user && <li className="relative">
+                                {
+                                    !isEmpty(wishlist) && (<span className="absolute -right-2 -top-1 bg-warning w-px h-px text-[10px] text-black"><span className="absolute left-3 ">{wishlist.length}</span></span>)
+                                }
                                 <NavLink
                                     to="/wishlist"
                                     className={({ isActive, isPending }) =>
@@ -135,7 +145,10 @@ export default function Navbar() {
                             </li>
                         }
                         {
-                            user && <li>
+                            user && <li className="relative">
+                                {
+                                    !isEmpty(order) && (<span className="absolute -right-2 -top-1 bg-warning w-px h-px text-[10px] text-black"><span className="absolute left-3 ">{order.length}</span></span>)
+                                }
                                 <NavLink
                                     to="/orders"
                                     className={({ isActive, isPending }) =>
@@ -181,19 +194,19 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end flex flex-col lg:flex-row">
-                    <p>
-                    orders: {order} 
+                    {/* <p>
+                        orders: {order.length}
                     </p>
                     <p>
-                        wishlist: {wishlist}
+                        wishlist: {wishlist.length}
                     </p>
                     {
                         // user && <span className="hidden md:block">Welcome &nbsp;</span>
-                    }
+                    } */}
                     <span className="text-xs mx-4">
-                    {
-                        user && <Link to="/profile" className="font-bold text-success text-sm md:text-xl" >{(user.displayName ? user?.displayName : user?.email)}</Link>
-                    }
+                        {
+                            user && <Link to="/profile" className="font-bold text-success text-sm md:text-xl" >{(user.displayName ? user?.displayName : user?.email)}</Link>
+                        }
                     </span>
                     <div className="btn btn-ghost hover:text-red-600 hover:bg-black" >
                         {/* Log Out */}

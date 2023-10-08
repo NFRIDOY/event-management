@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
-        errorElement: <Error></Error>,
+        // errorElement: <Error></Error>,
         children: [
             {
                 path: "/",
@@ -43,11 +43,13 @@ const router = createBrowserRouter([
             },
             {
                 path: "/wishlist",
+                loader: () => fetch('/eventData.json'),
                 element: <PrivateRoutes><Wishlist></Wishlist></PrivateRoutes>,
                 // errorElement: <Error></Error>,
             },
             {
                 path: "/orders",
+                loader: () => fetch('/eventData.json'),
                 element: <PrivateRoutes><Orders></Orders></PrivateRoutes>,
                 // errorElement: <Error></Error>,
             },
