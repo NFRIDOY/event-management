@@ -9,6 +9,7 @@ import Registration from "../components/Registration/Registration";
 import Events from "../components/Events/Events";
 import Orders from "../components/Orders/Orders";
 import PrivateRoutes from "./PrivateRoutes";
+import EventDetailsCard from "../components/EventDetailsCard/EventDetailsCard";
 
 const router = createBrowserRouter([
     {
@@ -19,30 +20,35 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 loader: () => fetch('eventData.json'),
-                element: <Home></Home>
+                element: <Home></Home>,
+                // errorElement: <Error></Error>,
             },
             {
                 path: "/events",
                 loader: () => fetch('eventData.json'),
                 element: <Events></Events>,
-                // errorElement: <DonationError></DonationError>,
+                // errorElement: <Error></Error>,
             },
             {
                 path: "/registration",
-                element: <Registration></Registration>
+                element: <Registration></Registration>,
+                // errorElement: <Error></Error>,
             },
             {
                 path: "/login",
-                element: <Login></Login>
+                element: <Login></Login>,
+                // errorElement: <Error></Error>,
             },
             {
                 path: "/orders",
-                element: <PrivateRoutes><Orders></Orders></PrivateRoutes>
+                element: <PrivateRoutes><Orders></Orders></PrivateRoutes>,
+                // errorElement: <Error></Error>,
             },
             {
-                path: "/events/:id",
+                path: "/eventDetailsCard/:id",
                 loader: () => fetch("eventData.json"),
-                element: <div>4</div>,
+                element: <EventDetailsCard></EventDetailsCard>,
+                // errorElement: <Error></Error>,
             },
 
         ],

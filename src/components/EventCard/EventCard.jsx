@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 
 
-export default function EventCard({event}) {
-    const {id, name, image, price, description} = event;
+export default function EventCard({ event }) {
+    const { id, name, image, price, description } = event;
     return (
         <div>
+
             <div className="card card-compact w-96 h-[400px] bg-base-100 shadow-xl rounded-3xl text-black">
                 <figure><img src={image} alt={name} /></figure>
                 <div className="card-body">
@@ -11,11 +13,19 @@ export default function EventCard({event}) {
                     <p className="text-slate-600 italic">
                         {description}
                     </p>
-                    <div className="card-actions justify-end ">
-                        <button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black">Buy Now {price}</button>
+                    <div className="card-actions flex justify-evenly mt-4">
+                        <button className="btn btn-ghost btn-outline rounded-2xl  hover:bg-neutral hover:text-white">
+                            <Link to={`/eventDetailsCard/${id}`}>
+                                View Details
+                            </Link>
+                        </button>
+                        <button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black">
+                            Book Now {price}
+                        </button>
                     </div>
                 </div>
             </div>
+
         </div>
     )
 }
