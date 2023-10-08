@@ -176,13 +176,15 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end flex flex-col lg:flex-row">
                     {
-                        user && <span>Welcome &nbsp;</span>
+                        user && <span className="hidden md:block">Welcome &nbsp;</span>
                     }
+                    <span className="text-xs ">
                     {
                         user && (user.displayName ? user?.displayName : user?.email)
                     }
+                    </span>
                     <div className="btn btn-ghost" >
                         {/* Log Out */}
                         {
