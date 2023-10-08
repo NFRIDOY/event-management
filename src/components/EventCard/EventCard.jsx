@@ -34,7 +34,7 @@ export default function EventCard({ event }) {
                         {description}
                     </p>
                     <div className="card-actions flex justify-evenly mt-4">
-                        <button className="btn btn-ghost btn-outline rounded-2xl  hover:bg-neutral hover:text-white">
+                        <button className="btn btn-ghost btn-outline text-yellow-400 rounded-2xl  hover:bg-yellow-400 hover:text-black">
                             <Link to={`/eventDetailsCard/${id}`}>
                                 View Details
                             </Link>

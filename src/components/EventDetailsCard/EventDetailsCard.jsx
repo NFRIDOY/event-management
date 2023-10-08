@@ -83,12 +83,15 @@ export default function EventDetailsCard() {
                 <figure><img className='object-cover h-[450px] w-11/12 rounded-3xl' src={event?.image} alt="Album" /></figure>
                 <div className="card-body mx-10 ">
                     <div className='flex flex-row justify-between items-baseline'>
-                        <h2 className="card-title lg:text-6xl font-black">{event?.name}</h2>
+                        <h2 className="card-title lg:text-6xl font-black">{event?.name} </h2>
                         <div className="card-actions justify-end">
                             <button className="btn btn-info text-white" onClick={handleSetWishlist}>Add To Wishlist</button>
-                            <button className="btn btn-primary text-white" onClick={handleSetOrder}>Book Now {event?.price}</button>
+                            <button className="btn btn-primary text-white" onClick={handleSetOrder}>Book Now </button>
                         </div>
                     </div>
+                    <p>
+                        <span className='text-3xl font-bold'>Price: </span><span className=' text-3xl text-yellow-400 italic font-medium'>{event?.price}</span>
+                    </p>
                     <p className='text-xl text-gray-500 mt-3'>{event?.description}</p>
                 </div>
             </div>
@@ -101,7 +104,7 @@ export default function EventDetailsCard() {
                     <p>{event?.description}</p>
                     <div className=" flex flex-row justify-between gap-4" >
                         <button className="btn btn-info text-white" onClick={handleSetWishlist}>Add To Wishlist</button>
-                        <button className="btn btn-primary text-white" onClick={handleSetOrder}>Book Now {event?.price}</button>
+                        <button className="btn btn-primary text-white" onClick={handleSetOrder}>Book Now </button>
                     </div>
                 </div>
 
