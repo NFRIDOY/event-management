@@ -3,6 +3,7 @@ import EventOrderdCard from "../EventOrderdCard/EventOrderdCard";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 
 export default function Orders() {
@@ -11,8 +12,10 @@ export default function Orders() {
 
     const { wishlist, setWishlist, order, setOrder, yourOrders, setYourOrders } = useContext(AuthContext)
 
-    console.log(order);
-    console.log(wishlist);
+    let [totalPrice, setTotalPrice] = useState(0)
+
+    // console.log(order);
+    // console.log(wishlist);
 
     const handleDelete = () => {
 
@@ -45,8 +48,8 @@ export default function Orders() {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-            
-           
+
+
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
@@ -67,8 +70,17 @@ export default function Orders() {
         })
     }
 
+    // let totalPrice1 = 0;
+    // order.forEach(element => {
+    //     console.log(element?.price);
+    //     totalPrice1 = totalPrice1 +  parseInt(element?.price.split("$").[1]);
+    // })
+    // setTotalPrice(totalPrice)
+    // console.log(totalPrice1);
+
     return (
         <div>
+            {/* {totalPrice1} */}
             <div className="flex">
                 <h1 className="text-3xl mx-auto w-fit font-bold">Total Order: {order.length}</h1>
                 <button className="btn bg-red-500 mr-4 " onClick={handleDelete}>Delete All</button>
@@ -80,6 +92,11 @@ export default function Orders() {
                 }
             </div>
             <div className="mx-auto w-fit my-11">
+                <div>
+                    {
+
+                    }
+                </div>
                 {
                     order.length ? <button className="btn btn-success" onClick={handleConfirmOrder}>Confirm Your Order</button> : <Link to={'/events'} className="btn btn-info" >Explore</Link>
                 }

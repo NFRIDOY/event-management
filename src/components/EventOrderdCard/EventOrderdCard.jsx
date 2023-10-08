@@ -9,7 +9,7 @@ export default function EventOrderdCard({ event }) {
 
     const { id, name, image, price, description } = event;
 
-    console.log(event);
+    // console.log(event);
 
     const eventsData = useLoaderData()
 
