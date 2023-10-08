@@ -1,6 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+
 
 export default function Navbar() {
+
+    const { handleSignOut, user } = useContext(AuthContext)
     return (
         <div>
 
@@ -31,7 +36,42 @@ export default function Navbar() {
                                     Events
                                 </NavLink>
                             </li>
-                        
+                            {
+                                user && <li>
+                                    <NavLink
+                                        to="/wishlist"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "active" : ""
+                                        }
+                                    >
+                                        Wishlist
+                                    </NavLink>
+                                </li>
+                            }
+                            {
+                                user && <li>
+                                    <NavLink
+                                        to="/orders"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "active" : ""
+                                        }
+                                    >
+                                        Orders
+                                    </NavLink>
+                                </li>
+                            }
+                            {
+                                user && <li>
+                                    <NavLink
+                                        to="/profile"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "active" : ""
+                                        }
+                                    >
+                                        Profile
+                                    </NavLink>
+                                </li>
+                            }
                             <li>
                                 <NavLink
                                     to="/registration"
@@ -54,7 +94,7 @@ export default function Navbar() {
                             </li>
                         </ul>
                     </div>
-                    <a className=" normal-case text-2xl font-black">EVENT MANAGMENT BD</a>
+                    <Link to={"/"} className=" normal-case text-2xl font-black">NF <span className="text-yellow-400">EVENT</span> MANAGMENT</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -78,6 +118,42 @@ export default function Navbar() {
                                 Events
                             </NavLink>
                         </li>
+                        {
+                            user && <li>
+                                <NavLink
+                                    to="/wishlist"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active" : ""
+                                    }
+                                >
+                                    Wishlist
+                                </NavLink>
+                            </li>
+                        }
+                        {
+                            user && <li>
+                                <NavLink
+                                    to="/orders"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active" : ""
+                                    }
+                                >
+                                    Orders
+                                </NavLink>
+                            </li>
+                        }
+                        {
+                            user && <li>
+                                <NavLink
+                                    to="/profile"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active" : ""
+                                    }
+                                >
+                                    Profile
+                                </NavLink>
+                            </li>
+                        }
                         <li>
                             <NavLink
                                 to="/registration"
@@ -100,8 +176,21 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn btn-ghost">Log Out</a>
+                <div className="navbar-end flex flex-col lg:flex-row">
+                    {
+                        // user && <span className="hidden md:block">Welcome &nbsp;</span>
+                    }
+                    <span className="text-xs mx-4">
+                    {
+                        user && <Link to="/profile" className="font-bold text-success text-sm md:text-xl" >{(user.displayName ? user?.displayName : user?.email)}</Link>
+                    }
+                    </span>
+                    <div className="btn btn-ghost hover:text-red-600 hover:bg-black" >
+                        {/* Log Out */}
+                        {
+                            user ? <span onClick={handleSignOut} className="text-red-500 font-extrabold">Log Out </span> : <Link to={'/login'} className="text-accent">Log In</Link>
+                        }
+                    </div>
                 </div>
             </div>
 

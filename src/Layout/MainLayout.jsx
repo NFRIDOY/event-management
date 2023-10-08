@@ -18,9 +18,7 @@ export default function MainLayout() {
         // console.log(allDonations)
       }
       <Header></Header>
-      <DonationContext.Provider value={[allDonations, setAllDonations]}>
-        <Outlet></Outlet>
-      </DonationContext.Provider>
+      <Outlet></Outlet>
       <Footer></Footer>
     </div>
   )

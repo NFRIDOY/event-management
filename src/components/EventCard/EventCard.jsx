@@ -6,7 +6,7 @@ export default function EventCard({ event }) {
     return (
         <div>
 
-            <div className="card card-compact w-96 h-[400px] bg-base-100 shadow-xl rounded-3xl text-black">
+            <div className="card card-compact lg:w-96 h-[400px] bg-base-100 shadow-xl rounded-3xl text-black">
                 <figure><img src={image} alt={name} /></figure>
                 <div className="card-body">
                     <h2 className="card-title font-bold">{name}</h2>
