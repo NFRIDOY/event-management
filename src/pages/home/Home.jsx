@@ -5,7 +5,7 @@ import Banner from "../../components/Banner/Banner";
 export default function Home() {
 
   const eventData = useLoaderData();
-  console.log(eventData[0]?.image);
+  // console.log(eventData[0]?.image);
 
   return (
 

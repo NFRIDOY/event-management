@@ -4,13 +4,19 @@ import { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 
 export default function EventDetailsCard() {
+    
     const eventsData = useLoaderData();
 
+    // const [events, setEvents] = useState([])
+
+    // setEvents(eventsData)
+    
     const [event, setEvent] = useState(null)
-
+    
     const { id } = useParams();
-
+    
     useEffect(() => {
+
         const findEvent = eventsData.find(evn => evn.id == id)
 
         setEvent(findEvent)
@@ -18,7 +24,7 @@ export default function EventDetailsCard() {
         console.log(findEvent);
 
 
-    },[])
+    },[eventsData])
 
     
     return (

@@ -10,6 +10,8 @@ import Events from "../components/Events/Events";
 import Orders from "../components/Orders/Orders";
 import PrivateRoutes from "./PrivateRoutes";
 import EventDetailsCard from "../components/EventDetailsCard/EventDetailsCard";
+import Wishlist from "../components/Wishlist/Wishlist";
+import Profile from "../components/Profile/Profile";
 
 const router = createBrowserRouter([
     {
@@ -19,13 +21,13 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                loader: () => fetch('eventData.json'),
+                loader: () => fetch('/eventData.json'),
                 element: <Home></Home>,
                 // errorElement: <Error></Error>,
             },
             {
                 path: "/events",
-                loader: () => fetch('eventData.json'),
+                loader: () => fetch('/eventData.json'),
                 element: <Events></Events>,
                 // errorElement: <Error></Error>,
             },
@@ -40,14 +42,24 @@ const router = createBrowserRouter([
                 // errorElement: <Error></Error>,
             },
             {
+                path: "/wishlist",
+                element: <PrivateRoutes><Wishlist></Wishlist></PrivateRoutes>,
+                // errorElement: <Error></Error>,
+            },
+            {
                 path: "/orders",
                 element: <PrivateRoutes><Orders></Orders></PrivateRoutes>,
                 // errorElement: <Error></Error>,
             },
             {
+                path: "/profile",
+                element: <PrivateRoutes><Profile></Profile></PrivateRoutes>,
+                // errorElement: <Error></Error>,
+            },
+            {
                 path: "/eventDetailsCard/:id",
-                loader: () => fetch("eventData.json"),
-                element: <EventDetailsCard></EventDetailsCard>,
+                loader: () => fetch("/eventData.json"),
+                element: <PrivateRoutes><EventDetailsCard></EventDetailsCard></PrivateRoutes>,
                 // errorElement: <Error></Error>,
             },
 

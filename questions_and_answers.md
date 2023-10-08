@@ -15,10 +15,13 @@ console.log(greetign);
 - B: `ReferenceError: greetign is not defined`
 - C: `undefined`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Answer B: ReferenceError: greetign is not defined</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: 
+<p>
+Here greeting is defined but greetign is not defined. So theire will be an ReferenceError. Which is "greetign" is not defined
+</p>
 
 <i>Write your explanation here</i>
 
@@ -40,14 +43,17 @@ sum(1, "2");
 - C: `"12"`
 - D: `3`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Answer C: "12"</b></summary>
 <p>
 
-#### Answer: ?
+</p>
+
+#### Answer: 
+
 
 <i>Write your explanation here</i>
 
-</p>
+</>
 </details>
 
 ###### 3. Write the `correct answer` from the following options and give an explanation (2-5 lines).

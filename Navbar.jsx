@@ -5,7 +5,7 @@ import { AuthContext } from "./src/Providers/AuthProvider";
 
 export default function Navbar() {
 
-    const {handleSignOut, user } = useContext(AuthContext)
+    const { handleSignOut, user } = useContext(AuthContext)
     return (
         <div>
 
@@ -36,7 +36,42 @@ export default function Navbar() {
                                     Events
                                 </NavLink>
                             </li>
-
+                            {
+                                user && <li>
+                                    <NavLink
+                                        to="/wishlist"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "active" : ""
+                                        }
+                                    >
+                                        Wishlist
+                                    </NavLink>
+                                </li>
+                            }
+                            {
+                                user && <li>
+                                    <NavLink
+                                        to="/orders"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "active" : ""
+                                        }
+                                    >
+                                        Orders
+                                    </NavLink>
+                                </li>
+                            }
+                            {
+                                user && <li>
+                                    <NavLink
+                                        to="/profile"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "active" : ""
+                                        }
+                                    >
+                                        Profile
+                                    </NavLink>
+                                </li>
+                            }
                             <li>
                                 <NavLink
                                     to="/registration"
@@ -83,16 +118,42 @@ export default function Navbar() {
                                 Events
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink
-                                to="/orders"
-                                className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "active" : ""
-                                }
-                            >
-                                Orders
-                            </NavLink>
-                        </li>
+                        {
+                            user && <li>
+                                <NavLink
+                                    to="/wishlist"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active" : ""
+                                    }
+                                >
+                                    Wishlist
+                                </NavLink>
+                            </li>
+                        }
+                        {
+                            user && <li>
+                                <NavLink
+                                    to="/orders"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active" : ""
+                                    }
+                                >
+                                    Orders
+                                </NavLink>
+                            </li>
+                        }
+                        {
+                            user && <li>
+                                <NavLink
+                                    to="/profile"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active" : ""
+                                    }
+                                >
+                                    Profile
+                                </NavLink>
+                            </li>
+                        }
                         <li>
                             <NavLink
                                 to="/registration"
@@ -116,10 +177,16 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    {
+                        user && <span>Welcome &nbsp;</span>
+                    }
+                    {
+                        user && (user.displayName ? user?.displayName : user?.email)
+                    }
                     <div className="btn btn-ghost" >
                         {/* Log Out */}
                         {
-                            user ? <span onClick={handleSignOut}>Log Out </span> : <Link to={'/login'} >Log In</Link> 
+                            user ? <span onClick={handleSignOut}>Log Out </span> : <Link to={'/login'} >Log In</Link>
                         }
                     </div>
                 </div>
