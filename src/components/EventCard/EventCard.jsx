@@ -40,12 +40,16 @@ export default function EventCard({ event }) {
                             </Link>
                         </button>
                         {
-                            user ? (<button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black "  onClick={handleSetOrder}  >
+                            user ? (<button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black "  onClick={user ? handleSetOrder : "/login"}  >
                             Book Now {price}
-                        </button>) : (<button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black " disabled onClick={handleSetOrder}  >
+                        </button>) : (<Link to={"/login"} className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black "  >
                             Book Now {price}
-                        </button>) 
+                        </Link>) 
+
                         }
+                         {/* <button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black "  onClick={user ? handleSetOrder : }  >
+                            Book Now {price}
+                        </button> */}
                         
                     </div>
                 </div>

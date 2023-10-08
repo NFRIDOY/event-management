@@ -8,6 +8,7 @@ import {
 import router from './Router/Router.jsx';
 import AuthProvider from './Providers/AuthProvider';
 import { Toaster } from 'react-hot-toast';
+import MyDatePicker from './components/DatePicker/DatePicker';
 
 
 
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       position="top-left"
       reverseOrder={false}></Toaster>
     <AuthProvider>
+    
       <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>,

@@ -1,15 +1,16 @@
 import { useContext } from "react"
 import { AuthContext } from "../../Providers/AuthProvider"
+import EventOrderdCard from "../EventOrderdCard/EventOrderdCard";
 
 
 export default function Profile() {
 
-    const { user } = useContext(AuthContext)
+    const { user, yourOrders } = useContext(AuthContext)
 
     console.log(user);
 
     return (
-        <div className="flex  justify-center">
+        <div className="flex flex-col justify-center items-center">
             <div className="flex  justify-center gap-10 my-12 mx-12 bg-clip-border rounded-xl border-2 w-fit p-10">
 
                 <div className="relative flex w-48 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -57,11 +58,26 @@ export default function Profile() {
                     <div className="text-xl">
                         Email: {user && user.email}
                     </div>
-                    
+
                     <div className="text-xl">
                         Email Verified: {user && user?.emailVerified ? <span className="text-green-500"> Verified</span> : <span className="text-red-500">Not Verified</span>}
                     </div>
+
                 </div>
+            </div>
+            <div>
+                <h1 className="text-center text-5xl mb-16 underline font-bold">
+                    {
+                        yourOrders.length ? (<span>Your Orders</span>) : ""
+                        
+                    }
+                </h1>
+                <div className="grid grid-cols-2 gap-4 mx-4 mb-5">
+                    {
+                        yourOrders.map(event => <EventOrderdCard key={event.id} event={event}></EventOrderdCard>)
+                    }
+                </div>
+                
             </div>
         </div>
     )

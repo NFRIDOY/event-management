@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { useLoaderData } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 import { AuthContext } from "../../Providers/AuthProvider"
 import { useState } from "react"
 import EventWishListCard from "../../EventWishListCard/EventWishListCard"
@@ -36,7 +36,7 @@ export default function Wishlist() {
       }
     })
 
-    
+
 
   }
 
@@ -49,6 +49,11 @@ export default function Wishlist() {
       <div className="grid grid-cols-2 gap-4 mx-24">
         {
           wishlist.map(event => <EventWishListCard key={event.id} event={event}></EventWishListCard>)
+        }
+      </div>
+      <div className="w-fit mx-auto my-11">
+        {
+          !wishlist.length && <Link to={'/events'} className="btn btn-info" >Explore</Link>
         }
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, Navigate, useLoaderData } from "react-router-dom";
 import EventOrderdCard from "../EventOrderdCard/EventOrderdCard";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -9,10 +9,10 @@ export default function Orders() {
 
     const eventData = useLoaderData()
 
-    const { wishlist, setWishlist, order, setOrder } = useContext(AuthContext)
+    const { wishlist, setWishlist, order, setOrder, yourOrders, setYourOrders } = useContext(AuthContext)
 
     console.log(order);
-    console.log(wishlist); 
+    console.log(wishlist);
 
     const handleDelete = () => {
 
@@ -36,6 +36,37 @@ export default function Orders() {
 
     }
 
+    const handleConfirmOrder = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            
+           
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Order Placed!',
+                    'Our Admin Will Contact You Soon',
+                    'success',
+                    setYourOrders(order),
+                    setOrder([]),
+                )
+            }
+            else {
+                Swal.fire(
+                    'Cancelled',
+                    'Your Haven\'t Orderd',
+                    'error',
+                )
+            }
+        })
+    }
+
     return (
         <div>
             <div className="flex">
@@ -46,6 +77,11 @@ export default function Orders() {
             <div className="grid grid-cols-2 gap-4 mx-4">
                 {
                     order.map(event => <EventOrderdCard key={event.id} event={event}></EventOrderdCard>)
+                }
+            </div>
+            <div className="mx-auto w-fit my-11">
+                {
+                    order.length ? <button className="btn btn-success" onClick={handleConfirmOrder}>Confirm Your Order</button> : <Link to={'/events'} className="btn btn-info" >Explore</Link>
                 }
             </div>
         </div>
