@@ -9,16 +9,16 @@ export default function EventCard({ event }) {
     const {user, wishlist, setWishlist, order, setOrder} = useContext(AuthContext)
 
     const handleSetOrder = () => {
-        const isFound = order.find(evnId => evnId == id)
+        const isFound = order.find(evnId => evnId.id == id)
         // if (wishlist.find(evn => evn.id === id)) {
         // alert(id, isFound)
         if (!isFound) {
-            setOrder([...order, event.id])
-            toast.success("Booked")
+            setOrder([...order, event])
+            toast.success("Booked. Please To to Order Page")
         }
         else {
             // alert("duplicate wishlist")
-            toast.error("Duplicate")
+            toast.error("Duplicate Data! Already Added")
             return;
         }
     }

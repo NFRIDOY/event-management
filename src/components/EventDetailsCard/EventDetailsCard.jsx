@@ -55,7 +55,7 @@ export default function EventDetailsCard() {
         }
         else {
             // alert("duplicate wishlist")
-            toast.error("Duplicate")
+            toast.error("Duplicate Data! Already Added")
             return;
         }
     }
@@ -65,11 +65,11 @@ export default function EventDetailsCard() {
         // alert(id, isFound)
         if (!isFound) {
             setOrder([...order, event])
-            toast.success("Booked")
+            toast.success("Booked. Please To to Order Page")
         }
         else {
             // alert("duplicate wishlist")
-            toast.error("Duplicate")
+            toast.error("Duplicate Data! Already Added")
             return;
         }
     }
