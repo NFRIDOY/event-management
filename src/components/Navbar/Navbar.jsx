@@ -10,8 +10,8 @@ export default function Navbar() {
 
     const { wishlist, setWishlist, order, setOrder } = useContext(AuthContext)
 
-    console.log(wishlist);
-    console.log(order);
+    // console.log(wishlist);
+    // console.log(order);
 
     const isEmpty = (list) => {
         if (list.length == 0) return true;

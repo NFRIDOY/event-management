@@ -23,7 +23,7 @@ export default function EventDetailsCard() {
 
         setEvent(findEvent)
 
-        console.log(findEvent);
+        // console.log(findEvent);
 
 
     }, [eventsData])

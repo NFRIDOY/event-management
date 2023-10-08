@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 export default function EventCard({ event }) {
     const { id, name, image, price, description } = event;
-    const {wishlist, setWishlist, order, setOrder} = useContext(AuthContext)
+    const {user, wishlist, setWishlist, order, setOrder} = useContext(AuthContext)
 
     const handleSetOrder = () => {
         const isFound = order.find(evnId => evnId == id)
@@ -39,9 +39,14 @@ export default function EventCard({ event }) {
                                 View Details
                             </Link>
                         </button>
-                        <button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black" onClick={handleSetOrder}>
+                        {
+                            user ? (<button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black "  onClick={handleSetOrder}  >
                             Book Now {price}
-                        </button>
+                        </button>) : (<button className="btn btn-neutral rounded-2xl text-white hover:bg-white hover:text-black " disabled onClick={handleSetOrder}  >
+                            Book Now {price}
+                        </button>) 
+                        }
+                        
                     </div>
                 </div>
             </div>

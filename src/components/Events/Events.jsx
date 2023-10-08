@@ -6,7 +6,7 @@ import EventCard from "../EventCard/EventCard";
 export default function Events() {
 
   const eventData = useLoaderData();
-  console.log(eventData[0]?.image);
+  // console.log(eventData[0]?.image);
   return (
     <div className="">
       <div className="max-w-7xl mx-auto">
