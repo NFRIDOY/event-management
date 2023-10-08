@@ -5,17 +5,17 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 export default function EventDetailsCard() {
-    
+
     const eventsData = useLoaderData();
 
     // const [events, setEvents] = useState([])
 
     // setEvents(eventsData)
-    
+
     const [event, setEvent] = useState(null)
-    
+
     const { id } = useParams();
-    
+
     useEffect(() => {
 
         const findEvent = eventsData.find(evn => evn.id == id)
@@ -25,9 +25,9 @@ export default function EventDetailsCard() {
         console.log(findEvent);
 
 
-    },[eventsData])
+    }, [eventsData])
 
-    const {wishlist, setWishlist, order, setOrder} = useContext(AuthContext)
+    const { wishlist, setWishlist, order, setOrder } = useContext(AuthContext)
 
     const handleSetWishlist = () => {
         setWishlist([...wishlist, event.id])
@@ -36,19 +36,21 @@ export default function EventDetailsCard() {
         setOrder([...order, event.id])
     }
 
-    
+
     return (
         <div>
 
             <div className="card  bg-base-100 shadow-xl ">
                 <figure><img className='object-cover h-[450px] w-11/12 rounded-3xl' src={event?.image} alt="Album" /></figure>
-                <div className="card-body mx-10">
-                    <h2 className="card-title">{event?.name}</h2>
-                    <p>{event?.description}</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-info text-white" onClick={handleSetWishlist}>Add To Wishlist</button>
-                        <button className="btn btn-primary text-white" onClick={handleSetOrder}>Book Now {event?.price}</button>
+                <div className="card-body mx-10 ">
+                    <div className='flex justify-between items-baseline'>
+                        <h2 className="card-title text-6xl font-black">{event?.name}</h2>
+                        <div className="card-actions justify-end">
+                            <button className="btn btn-info text-white" onClick={handleSetWishlist}>Add To Wishlist</button>
+                            <button className="btn btn-primary text-white" onClick={handleSetOrder}>Book Now {event?.price}</button>
+                        </div>
                     </div>
+                    <p className='text-xl text-gray-500 mt-3'>{event?.description}</p>
                 </div>
             </div>
 
