@@ -30,7 +30,7 @@ export default function Login() {
                 // setCurrentUser(user)
                 e.target.reset()
 
-                navigete('/')
+                // navigete('/')
 
             })
             .catch((error) => {
@@ -42,7 +42,17 @@ export default function Login() {
                 // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
                 //...
-                console.log(errorCode, errorMessage, email, credential);
+                console.log(errorCode);
+                console.log(errorMessage);
+                console.log(email);
+                console.log(credential);
+
+                if(errorCode === "auth/invalid-login-credentials") {
+                    toast.error('password')
+                }
+                else if(errorCode === "auth/user-not-found") {
+                    toast.error('email')
+                }
             });
     }
 
@@ -57,24 +67,24 @@ export default function Login() {
                         </p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100" data-aos="zoom-in-left">
-                        <form className="card-body">
+                        <form className="card-body" onSubmit={handleSubmit}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
+                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
+                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                                 {/* <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label> */}
                             </div>
                             <div className="form-control mt-6 ">
-                                <button className="btn btn-accent text-white">Login</button>
+                                <button className="btn btn-accent text-white" type="submit">Login</button>
                                 {/* <button className="btn btn-success text-white"></button> */}
                                 <p className="mx-auto mt-6">
                                     Do Not Have An Account? <Link to={"/registration"} className="text-accent">Registration</Link>

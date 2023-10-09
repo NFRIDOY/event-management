@@ -13,7 +13,7 @@ import { updateProfile } from "firebase/auth";
 
 export default function Registration() {
     // const { user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup } = useContext(AuthContext)
-    const {auth, user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup } = useContext(AuthContext)
+    const { auth, user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup } = useContext(AuthContext)
 
     const handleEmailPasswords = (e) => {
         e.preventDefault();
@@ -22,7 +22,39 @@ export default function Registration() {
         const password = e.target.password.value
         const photoURL = e.target.photoURL.value
         console.log(name, email, password);
-        createUser(email, password)
+
+
+        // let pattern = new RegExp("^(?=(.*[a-zA-Z]){1,})(?=(.*[0-9]){2,}).{6,}$"); //Regex: At least 8 characters with at least 2 numerical
+        // if(pattern.test(inputToListen.value)){
+        //     valide.innerHTML = 'ok';
+        // }else{
+        //     valide.innerHTML = 'not ok'
+        // }
+
+
+        var lengthRegex = /.{6,}/; // At least 8 characters long
+        var uppercaseRegex = /[A-Z]/; // Contains at least one uppercase letter
+        // var lowercaseRegex = /[a-z]/; // Contains at least one lowercase letter
+        // var digitRegex = /\d/; // Contains at least one digit
+        var specialCharRegex = /[^A-Za-z0-9]/; // Contains at least one special character
+
+        // Check each criteria
+        if (!lengthRegex.test(password)) {
+            toast.error("Password must be at least 6 characters long.");
+        } else if (!uppercaseRegex.test(password)) {
+            toast.error("Password must contain at least one uppercase letter.");
+        } 
+        // else if (!lowercaseRegex.test(password)) {
+        //     toast.error("Password must contain at least one lowercase letter.");
+        // } 
+        // else if (!digitRegex.test(password)) {
+        //     toast.error("Password must contain at least one digit.");
+        // } 
+        else if (!specialCharRegex.test(password)) {
+            toast.error("Password must contain at least one special character.");
+        } else {
+            toast.success("Password is valid!");
+            createUser(email, password)
             .then((userCredential) => {
                 toast.success('Registration Successful')
                 // Signed up 
@@ -33,7 +65,7 @@ export default function Registration() {
                 // User Name and Photo URL
 
                 updateProfile(auth.currentUser, {
-                    displayName: "NFFF", photoURL: "photoURL"
+                    displayName: name, photoURL: photoURL
                 }).then(() => {
                     // Profile updated!
                     // ...
@@ -54,6 +86,9 @@ export default function Registration() {
                 console.log(errorCode);
                 console.log(errorMessage);
             });
+        }
+
+        
     }
 
 
@@ -90,7 +125,7 @@ export default function Registration() {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label> */}
                             </div>
-                            
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
