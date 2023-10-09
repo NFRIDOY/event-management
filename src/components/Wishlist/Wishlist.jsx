@@ -41,8 +41,8 @@ export default function Wishlist() {
   }
 
   return (
-    <div>
-      <div className="flex">
+    <div className="py-20">
+      <div className="flex ">
         {wishlist.length != 0 && <h1 className="text-3xl mx-auto w-fit font-bold">Total Components: {wishlist.length}</h1>}
         {wishlist.length != 0 && <button className="btn bg-red-500 mr-4 " onClick={handleDelete}>Delete All</button>}
       </div>

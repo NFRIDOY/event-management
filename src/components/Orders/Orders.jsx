@@ -88,11 +88,11 @@ export default function Orders() {
     // console.log(totalPrice1);
 
     return (
-        <div>
+        <div className="py-20">
             {/* {totalPrice1} */}
             <div className="flex" data-aos="zoom-in-up">
-                {!isZero && <h1 className="text-3xl mx-auto w-fit font-bold ">Total Order: {order.length}</h1>}
-                {!isZero && <button className="btn bg-red-500 mr-4 " onClick={handleDelete}>Delete All</button>}
+                {!isZero() && <h1 className="text-3xl mx-auto w-fit font-bold ">Total Order: {order.length}</h1>}
+                {!isZero() && <button className="btn bg-red-500 mr-4 " onClick={handleDelete}>Delete All</button>}
             </div>
 
             <div className="grid grid-cols-2 gap-4 mx-4 my-10" data-aos="zoom-in" >
