@@ -3,7 +3,7 @@
 export default function WeAreBest() {
     return (
         <div>
-            <div className="lg:max-w-7xl mx-auto shadow-2xl lg:p-10 w-screen " >
+            <div className="lg:max-w-7xl mx-auto shadow-2xl lg:p-10 " >
                 <h1 className="text-7xl font-bold w-fit mx-auto" >Why We Are The <span className="text-yellow-400">Best</span>?</h1>
                 <ul className="shadow-sm fole grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10 p-4 w-full">
                     <li data-aos="zoom-in-right">
