@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { AuthContext } from "../Providers/AuthProvider"
 import { Link, useLoaderData } from "react-router-dom"
+import toast from "react-hot-toast";
 
 
 export default function EventWishListCard({ event }) {
@@ -9,25 +10,41 @@ export default function EventWishListCard({ event }) {
 
     const eventsData = useLoaderData()
 
+    const { user, order, setOrder } = useContext(AuthContext)
 
+    const handleSetOrder = () => {
+        const isFound = order.find(evnId => evnId.id == id)
+        // if (wishlist.find(evn => evn.id === id)) {
+        // alert(id, isFound)
+        if (!isFound) {
+            setOrder([...order, event])
+            toast.success("Booked. Please To to Order Page")
+        }
+        else {
+            // alert("duplicate wishlist")
+            toast.error("Duplicate Data! Already Added")
+            return;
+        }
+    }
 
-    const { user } = useContext(AuthContext)
     return (
         <div>
 
 
-            <Link to={`/eventDetailsCard/${id}`} className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img className="object-cover w-full rounded-t-lg h-96 ml-6 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={image} alt="" />
                 <div className="flex flex-col justify-between p-4 leading-normal">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        {name}
+                        <Link to={`/eventDetailsCard/${id}`}>
+                            {name}
+                        </Link>
                     </h5>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                         {description}
                     </p>
-                    <button className="btn btn-ghost outline text-white">Book For {price}</button>
+                    <button className="btn btn-ghost outline text-white" onClick={handleSetOrder}>Book For {price}</button>
                 </div>
-            </Link>
+            </div>
 
 
             {/* <Link href="#" className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">

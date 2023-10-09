@@ -43,17 +43,20 @@ export default function Wishlist() {
   return (
     <div>
       <div className="flex">
-        <h1 className="text-3xl mx-auto w-fit font-bold">Total Components: {wishlist.length}</h1>
-        <button className="btn bg-red-500 mr-4 " onClick={handleDelete}>Delete All</button>
+        {wishlist.length != 0 && <h1 className="text-3xl mx-auto w-fit font-bold">Total Components: {wishlist.length}</h1>}
+        {wishlist.length != 0 && <button className="btn bg-red-500 mr-4 " onClick={handleDelete}>Delete All</button>}
       </div>
-      <div className="grid grid-cols-2 gap-4 mx-24">
+      <div className="grid grid-cols-2 gap-4 mx-24 my-10" data-aos="zoom-in">
         {
           wishlist.map(event => <EventWishListCard key={event.id} event={event}></EventWishListCard>)
         }
       </div>
-      <div className="w-fit mx-auto my-11">
+      <div className="mx-auto  flex flex-col items-center w-fit ">
+        <div>
+        {!wishlist.length &&<h1 className="text-5xl mt-40">Your Haven&apos;t Wishlisted Any</h1>}
+        </div>
         {
-          !wishlist.length && <Link to={'/events'} className="btn btn-info" >Explore</Link>
+          !wishlist.length && <Link to={'/events'} className="btn btn-info my-44" >Explore</Link>
         }
       </div>
     </div>

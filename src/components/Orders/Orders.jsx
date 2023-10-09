@@ -47,7 +47,7 @@ export default function Orders() {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes, Confirm it!'
 
 
         }).then((result) => {
@@ -70,6 +70,15 @@ export default function Orders() {
         })
     }
 
+    const isZero = () => {
+        if (order.length === 0) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
     // let totalPrice1 = 0;
     // order.forEach(element => {
     //     console.log(element?.price);
@@ -81,25 +90,25 @@ export default function Orders() {
     return (
         <div>
             {/* {totalPrice1} */}
-            <div className="flex">
-                <h1 className="text-3xl mx-auto w-fit font-bold">Total Order: {order.length}</h1>
-                <button className="btn bg-red-500 mr-4 " onClick={handleDelete}>Delete All</button>
+            <div className="flex" data-aos="zoom-in-up">
+                {!isZero && <h1 className="text-3xl mx-auto w-fit font-bold ">Total Order: {order.length}</h1>}
+                {!isZero && <button className="btn bg-red-500 mr-4 " onClick={handleDelete}>Delete All</button>}
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mx-4">
-                {
+            <div className="grid grid-cols-2 gap-4 mx-4 my-10" data-aos="zoom-in" >
+                { 
                     order.map(event => <EventOrderdCard key={event.id} event={event}></EventOrderdCard>)
                 }
             </div>
-            <div className="mx-auto w-fit my-11">
+            <div className="mx-auto  flex flex-col items-center w-fit ">
+                <div>
+                    {!order.length && <h1 className="text-5xl mt-40">Your Haven&apos;t Booked Any</h1>}
+                </div>
                 <div>
                     {
-
+                        order.length ? <button className="btn btn-success my-10" onClick={handleConfirmOrder}>Confirm Your Order</button> : <Link to={'/events'} className="btn btn-info  my-44" >Explore</Link>
                     }
                 </div>
-                {
-                    order.length ? <button className="btn btn-success" onClick={handleConfirmOrder}>Confirm Your Order</button> : <Link to={'/events'} className="btn btn-info" >Explore</Link>
-                }
             </div>
         </div>
     )

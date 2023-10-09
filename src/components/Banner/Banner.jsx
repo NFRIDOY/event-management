@@ -7,8 +7,8 @@ export default function Banner() {
 
             <div>
                 <img className="object-cover h-[80vh] w-full opacity-90" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" />
-                <h1 className="absolute font-black text-white text-4xl md:text-7xl top-10 lg:top-24 left-5 lg:left-16">We Manage <span className="text-yellow-400">Events</span> <br /> For You</h1>
-                <button className="btn btn-warning text-black font-bold absolute right-4 bottom-8">
+                <h1 className="absolute font-black text-white text-4xl md:text-7xl top-10 lg:top-24 left-5 lg:left-16" data-aos="fade-right">We Manage <span className="text-yellow-400">Events</span> <br /> For You</h1>
+                <button className="btn btn-warning text-black font-bold absolute right-4 bottom-8" data-aos="fade-left">
                     <Link to={'/events'} >
                         Book Now
                     </Link>

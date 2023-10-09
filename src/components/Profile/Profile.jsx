@@ -10,8 +10,8 @@ export default function Profile() {
     console.log(user);
 
     return (
-        <div className="flex flex-col justify-center items-center">
-            <div className="flex  justify-center gap-10 my-12 mx-12 bg-clip-border rounded-xl border-2 w-fit p-10">
+        <div className="flex flex-col justify-center items-center" >
+            <div className="flex  justify-center gap-10 my-12 mx-12 bg-clip-border rounded-xl border-2 w-fit p-10" data-aos="flip-right">
 
                 <div className="relative flex w-48 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                     <div className="relative w-fit mx-auto overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg flex justify-center">
@@ -72,7 +72,7 @@ export default function Profile() {
                         
                     }
                 </h1>
-                <div className="grid grid-cols-2 gap-4 mx-4 mb-5">
+                <div className="grid grid-cols-2 gap-4 mx-4 mb-5" data-aos="flip-left">
                     {
                         yourOrders.map(event => <EventOrderdCard key={event.id} event={event}></EventOrderdCard>)
                     }
