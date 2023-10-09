@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Banner() {
     return (
-        <div className="relative py-4" data-aos="fade-up">
+        <div className="relative py-4">
 
             <div>
                 <img className="object-cover h-[80vh] w-full opacity-90" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" />
