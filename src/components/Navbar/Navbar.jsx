@@ -194,7 +194,7 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </div>
-                <div className="navbar-end flex flex-row">
+                <div className="navbar-end flex flex-row justify-center border-2">
                     <div className="flex justify-center items-center mx-1 space-x-3">
                         <span className="text-xs hidden lg:block">
                             {

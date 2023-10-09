@@ -59,9 +59,9 @@ export default function Registration() {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-100">
+            <div className="hero min-h-screen bg-base-100 py-20">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left" data-aos="zoom-in-left">
+                    <div className="text-center lg:text-left hidden lg:block" data-aos="zoom-in-left">
                         <h1 className="text-5xl font-bold">Registration <span className="text-success">Now!</span></h1>
                         <p className="py-6">
                             Our dedicated support team is available to assist you 24/7.
