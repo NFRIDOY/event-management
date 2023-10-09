@@ -195,15 +195,6 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className="navbar-end flex flex-row">
-                    {/* <p>
-                        orders: {order.length}
-                    </p>
-                    <p>
-                        wishlist: {wishlist.length}
-                    </p>
-                    {
-                        // user && <span className="hidden md:block">Welcome &nbsp;</span>
-                    } */}
                     <div className="flex justify-center items-center mx-1 space-x-3">
                         <span className="text-xs hidden lg:block">
                             {
