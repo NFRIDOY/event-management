@@ -212,7 +212,7 @@ export default function Navbar() {
                                 }
                             </span>
                         </div>
-                        <div className="btn btn-ghost hover:text-red-600 hover:bg-black" >
+                        <div className="btn btn-ghost hover:text-red-600 hover:bg-black " >
                             {
                                 user ? <span onClick={handleSignOut} className="text-red-500 font-extrabold text-sm">Log Out </span> : <Link to={'/login'} className="text-accent font-extrabold text-sm">Log In</Link>
                             }
