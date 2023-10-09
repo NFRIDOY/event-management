@@ -14,3 +14,7 @@ git push -u origin main
 git remote add origin https://github.com/programming-hero-web-course-4/b8a9-event-management-NFRIDOY.git
 git branch -M main
 git push -u origin main
+
+Submittd
+Github Link- https://github.com/programming-hero-web-course-4/b8a9-event-management-NFRIDOY
+Live Link Firebase- https://event-management-69fb5.web.app
