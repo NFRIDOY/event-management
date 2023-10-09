@@ -193,7 +193,7 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </div>
-                <div className="navbar-end flex flex-col lg:flex-row">
+                <div className="navbar-end flex flex-row">
                     {/* <p>
                         orders: {order.length}
                     </p>
@@ -203,15 +203,26 @@ export default function Navbar() {
                     {
                         // user && <span className="hidden md:block">Welcome &nbsp;</span>
                     } */}
-                    <span className="text-xs mx-4">
-                        {
-                            user && <Link to="/profile" className="font-bold text-success text-sm md:text-xl" >{(user.displayName ? user?.displayName : user?.email)}</Link>
-                        }
-                    </span>
-                    <div className="btn btn-ghost hover:text-red-600 hover:bg-black" >
+                    <div className="flex justify-center items-center mx-1 space-x-3">
+                        <span className="text-xs hidden lg:block">
+                            {
+                                user && <Link to="/profile" className="font-bold text-success text-sm md:text-xl" >{(user.displayName ? user?.displayName : user?.email)}</Link>
+                            }
+                        </span>
+                        <span className="text-xs">
+                            {
+                                user && <div className="avatar">
+                                    <div className="w-10 mask mask-squircle">
+                                    <Link to="/profile"  > <img src={(user?.photoURL)} /> </Link>
+                                    </div>
+                                </div>
+                            }
+                        </span>
+                    </div>
+                    <div className="btn btn-ghost hover:text-red-600 hover:bg-black text-xs" >
                         {/* Log Out */}
                         {
-                            user ? <span onClick={handleSignOut} className="text-red-500 font-extrabold">Log Out </span> : <Link to={'/login'} className="text-accent">Log In</Link>
+                            user ? <span onClick={handleSignOut} className="text-red-500 font-extrabold text-sm">Log Out </span> : <Link to={'/login'} className="text-accent font-extrabold text-sm">Log In</Link>
                         }
                     </div>
                 </div>
