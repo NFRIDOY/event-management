@@ -13,7 +13,7 @@ import { updateProfile } from "firebase/auth";
 
 export default function Registration() {
     // const { user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup } = useContext(AuthContext)
-    const { auth, user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup } = useContext(AuthContext)
+    const { auth, user,newUser, setNewUser , createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup } = useContext(AuthContext)
 
     const navigate = useNavigate();
 
@@ -73,13 +73,14 @@ export default function Registration() {
                         // ...
                         console.log("Profile Updated");
                         toast.success("Profile Updated");
+                        setNewUser(user);
                     }).catch((error) => {
                         // An error occurred
                         // ...
                         console.log(error)
                         toast.error(error)
                     });
-
+                    
                     navigate("/events")
 
                 })

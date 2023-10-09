@@ -20,6 +20,7 @@ export default function AuthProvider({ children }) {
     const [wishlist, setWishlist] = useState([]);
     const [order, setOrder] = useState([]);
     const [yourOrders, setYourOrders] = useState([]);
+    const [newUser, setNewUser] = useState(null);
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -113,10 +114,10 @@ export default function AuthProvider({ children }) {
         return () => {
             unSubscribe();
         }
-    }, [])
+    }, [user,newUser])
 
 
-    const authInfo = {auth, user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup, setWishlist, wishlist, order, setOrder, yourOrders, setYourOrders }
+    const authInfo = {auth, user, newUser, setNewUser, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup, setWishlist, wishlist, order, setOrder, yourOrders, setYourOrders }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
