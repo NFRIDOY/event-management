@@ -51,11 +51,11 @@ export default function Login() {
 
                 if(errorCode === "auth/invalid-login-credentials") {
                     toast.error('Wrong Email Or Password')
-                    // toast.error(errorMessage)
+                    toast.error(errorCode)
                 }
                 else if(errorCode === "auth/invalid-email") {
                     toast.error('Invalid Email')
-                    // toast.error(errorMessage)
+                    toast.error(errorCode)
                 }
             });
     }

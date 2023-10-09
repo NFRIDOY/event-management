@@ -3,7 +3,7 @@
 // import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
@@ -14,6 +14,8 @@ import { updateProfile } from "firebase/auth";
 export default function Registration() {
     // const { user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup } = useContext(AuthContext)
     const { auth, user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup } = useContext(AuthContext)
+
+    const navigate = useNavigate();
 
     const handleEmailPasswords = (e) => {
         e.preventDefault();
@@ -78,6 +80,8 @@ export default function Registration() {
                         toast.error(error)
                     });
 
+                    navigate("/events")
+
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -87,12 +91,12 @@ export default function Registration() {
                     console.log(errorMessage);
 
                     if (errorCode === "auth/invalid-login-credentials") {
-                        toast.error('Wrong Email Or Password')
-                        // toast.error(errorMessage)
+                        // toast.error('Wrong Email Or Password')
+                        toast.error(errorCode)
                     }
                     else if (errorCode === "auth/invalid-email") {
                         toast.error('Invalid Email')
-                        // toast.error(errorMessage)
+                        toast.error(errorCode)
                     }
                 });
         }
