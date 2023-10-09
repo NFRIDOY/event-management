@@ -21,7 +21,7 @@ export default function Navbar() {
         <div>
 
             <div className="navbar bg-base-100 fixed top-0 z-10">
-            {/* <div className="navbar bg-base-100"> */}
+                {/* <div className="navbar bg-base-100"> */}
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -106,7 +106,7 @@ export default function Navbar() {
                             </li>
                         </ul>
                     </div>
-                    <Link to={"/"} className=" normal-case text-2xl font-black">NF <span className="text-yellow-400">EVENT</span> MANAGMENT</Link>
+                    <Link to={"/"} className=" normal-case text-xs md:text-2xl font-black">NF <span className="text-yellow-400">EVENT</span> MANAGMENT</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -194,28 +194,29 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </div>
-                <div className="navbar-end flex flex-row justify-center border-2">
-                    <div className="flex justify-center items-center mx-1 space-x-3">
-                        <span className="text-xs hidden lg:block">
-                            {
-                                user && <Link to="/profile" className="font-bold text-success text-sm md:text-xl" >{(user.displayName ? user?.displayName : user?.email)}</Link>
-                            }
-                        </span>
-                        <span className="text-xs">
-                            {
-                                user && <div className="avatar">
-                                    <div className="w-10 mask mask-squircle">
-                                    <Link to="/profile"  > <img src={(user?.photoURL)} /> </Link>
+                <div className="lg:navbar-end ">
+                    <div className="flex flex-row">
+                        <div className="flex justify-center items-center mx-1 space-x-3">
+                            <span className="text-xs hidden lg:block">
+                                {
+                                    user && <Link to="/profile" className="font-bold text-success text-sm md:text-xl" >{(user.displayName ? user?.displayName : user?.email)}</Link>
+                                }
+                            </span>
+                            <span className="text-xs">
+                                {
+                                    user && <div className="avatar">
+                                        <div className="w-10 mask mask-squircle">
+                                            <Link to="/profile"  > <img src={(user?.photoURL)} /> </Link>
+                                        </div>
                                     </div>
-                                </div>
+                                }
+                            </span>
+                        </div>
+                        <div className="btn btn-ghost hover:text-red-600 hover:bg-black" >
+                            {
+                                user ? <span onClick={handleSignOut} className="text-red-500 font-extrabold text-sm">Log Out </span> : <Link to={'/login'} className="text-accent font-extrabold text-sm">Log In</Link>
                             }
-                        </span>
-                    </div>
-                    <div className="btn btn-ghost hover:text-red-600 hover:bg-black text-xs" >
-                        {/* Log Out */}
-                        {
-                            user ? <span onClick={handleSignOut} className="text-red-500 font-extrabold text-sm">Log Out </span> : <Link to={'/login'} className="text-accent font-extrabold text-sm">Log In</Link>
-                        }
+                        </div>
                     </div>
                 </div>
             </div>
