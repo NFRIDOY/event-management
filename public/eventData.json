@@ -8,14 +8,14 @@
     },
     {
         "id": 2,
-        "name": "Gala Dinner & Awards Ceremony",
+        "name": "Dinner & Awards Ceremony",
         "image": "https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
         "price": "$8500",
         "description": "Make your corporate celebration unforgettable with our gala dinner and awards ceremony package. We handle everything from elegant decor to award presentations, ensuring a memorable night for all attendees."
     },
     {
         "id": 3,
-        "name": "Team Building Adventure Day",
+        "name": "Team Building Workshops Day",
         "image": "https://images.unsplash.com/photo-1487611459768-bd414656ea10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
         "price": "$5000",
         "description": "Strengthen your team's bonds and boost morale with our adventure-packed team-building day. Activities include obstacle courses, team challenges, and a catered picnic lunch."
