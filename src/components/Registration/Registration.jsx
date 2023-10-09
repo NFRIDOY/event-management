@@ -43,7 +43,7 @@ export default function Registration() {
             toast.error("Password must be at least 6 characters long.");
         } else if (!uppercaseRegex.test(password)) {
             toast.error("Password must contain at least one uppercase letter.");
-        } 
+        }
         // else if (!lowercaseRegex.test(password)) {
         //     toast.error("Password must contain at least one lowercase letter.");
         // } 
@@ -55,40 +55,49 @@ export default function Registration() {
         } else {
             toast.success("Password is valid!");
             createUser(email, password)
-            .then((userCredential) => {
-                toast.success('Registration Successful')
-                // Signed up 
-                const user = userCredential.user;
-                // ...
-                console.log(user);
-
-                // User Name and Photo URL
-
-                updateProfile(auth.currentUser, {
-                    displayName: name, photoURL: photoURL
-                }).then(() => {
-                    // Profile updated!
+                .then((userCredential) => {
+                    toast.success('Registration Successful')
+                    // Signed up 
+                    const user = userCredential.user;
                     // ...
-                    console.log("Profile Updated");
-                    toast.success("Profile Updated");
-                }).catch((error) => {
-                    // An error occurred
-                    // ...
-                    console.log(error)
-                    toast.error(error)
+                    console.log(user);
+
+                    // User Name and Photo URL
+
+                    updateProfile(auth.currentUser, {
+                        displayName: name, photoURL: photoURL
+                    }).then(() => {
+                        // Profile updated!
+                        // ...
+                        console.log("Profile Updated");
+                        toast.success("Profile Updated");
+                    }).catch((error) => {
+                        // An error occurred
+                        // ...
+                        console.log(error)
+                        toast.error(error)
+                    });
+
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                    console.log(errorCode);
+                    console.log(errorMessage);
+
+                    if (errorCode === "auth/invalid-login-credentials") {
+                        toast.error('Wrong Email Or Password')
+                        // toast.error(errorMessage)
+                    }
+                    else if (errorCode === "auth/invalid-email") {
+                        toast.error('Invalid Email')
+                        // toast.error(errorMessage)
+                    }
                 });
-
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-                console.log(errorCode);
-                console.log(errorMessage);
-            });
         }
 
-        
+
     }
 
 
@@ -114,7 +123,7 @@ export default function Registration() {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                                <input type="text" name="email" placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">

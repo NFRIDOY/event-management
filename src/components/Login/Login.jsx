@@ -48,10 +48,12 @@ export default function Login() {
                 console.log(credential);
 
                 if(errorCode === "auth/invalid-login-credentials") {
-                    toast.error('password')
+                    toast.error('Wrong Email Or Password')
+                    // toast.error(errorMessage)
                 }
-                else if(errorCode === "auth/user-not-found") {
-                    toast.error('email')
+                else if(errorCode === "auth/invalid-email") {
+                    toast.error('Invalid Email')
+                    // toast.error(errorMessage)
                 }
             });
     }
@@ -72,7 +74,7 @@ export default function Login() {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                                <input type="text" name="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
