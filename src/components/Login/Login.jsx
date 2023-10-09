@@ -1,11 +1,51 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
+import toast from "react-hot-toast";
 
 
 
 export default function Login() {
     const { user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup } = useContext(AuthContext)
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value
+        const password = e.target.password.value
+        // console.log(email, password);
+        // signInWithEmailAndPassword(auth, email, password)
+        signInUser(email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                //...
+                // This gives you a Google Access Token. You can use it to access the Google API.
+
+                // IdP data available using getAdditionalUserInfo(result)
+                console.log(user);
+
+                toast.success('Loged in Successfully')
+
+                // setCurrentUser(user)
+                e.target.reset()
+
+                navigete('/')
+
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                //...
+                console.log(errorCode, errorMessage, email, credential);
+            });
+    }
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-100">

@@ -5,16 +5,55 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
 
 
 // library.add(fas);
 
 export default function Registration() {
     // const { user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup } = useContext(AuthContext)
-    const { user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup } = useContext(AuthContext)
+    const {auth, user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup } = useContext(AuthContext)
 
-    const handleEmailPasswords = (email, password) => {
-        createUser(email, password);
+    const handleEmailPasswords = (e) => {
+        e.preventDefault();
+        const name = e.target.name.value
+        const email = e.target.email.value
+        const password = e.target.password.value
+        const photoURL = e.target.photoURL.value
+        console.log(name, email, password);
+        createUser(email, password)
+            .then((userCredential) => {
+                toast.success('Registration Successful')
+                // Signed up 
+                const user = userCredential.user;
+                // ...
+                console.log(user);
+
+                // User Name and Photo URL
+
+                updateProfile(auth.currentUser, {
+                    displayName: "NFFF", photoURL: "photoURL"
+                }).then(() => {
+                    // Profile updated!
+                    // ...
+                    console.log("Profile Updated");
+                    toast.success("Profile Updated");
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                    console.log(error)
+                    toast.error(error)
+                });
+
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+                console.log(errorCode);
+                console.log(errorMessage);
+            });
     }
 
 
@@ -32,21 +71,37 @@ export default function Registration() {
                         <form className="card-body" onSubmit={handleEmailPasswords} >
                             <div className="form-control">
                                 <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" name="name" placeholder="name" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered"  />
+                                <input type="email" name="email" placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered"  />
+                                <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                                {/* <label className="label">
+                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                </label> */}
+                            </div>
+                            
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered" />
                                 {/* <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label> */}
                             </div>
                             <div className="form-control mt-6 ">
-                                <button className="btn btn-success text-white">Registration</button>
+                                <button className="btn btn-success text-white" type="submit">Registration</button>
                                 {/* <button className="btn btn-success text-white"></button> */}
                                 <p className="mx-auto mt-6">
                                     Already Have An Account? <Link to={"/login"} className="text-success">Login</Link>

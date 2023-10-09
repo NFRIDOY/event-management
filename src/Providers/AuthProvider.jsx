@@ -116,7 +116,7 @@ export default function AuthProvider({ children }) {
     }, [])
 
 
-    const authInfo = { user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup, setWishlist, wishlist, order, setOrder, yourOrders, setYourOrders }
+    const authInfo = {auth, user, createUser, signInUser, handleSignOut, loading, googleSignInWithPopup, githubSignInWithPopup, setWishlist, wishlist, order, setOrder, yourOrders, setYourOrders }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
